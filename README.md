@@ -741,6 +741,16 @@ Or a block:
 end
 ```
 
+## Using a custom serializer
+
+By default, PaperTrail stores your changes as a YAML dump. You can override this with the serializer config option:
+
+```ruby
+>> PaperTrail.serializer = MyCustomSerializer
+```
+
+The serializer needs to be a class that responds to a `load` and `dump` method.  [See the default PaperTrail serializer](https://github.com/airblade/paper_trail/blob/master/lib/paper_trail/serializers/yaml.rb) for an example.
+
 ## Deleting Old Versions
 
 Over time your `versions` table will grow to an unwieldy size.  Because each version is self-contained (see the Diffing section above for more) you can simply delete any records you don't want any more.  For example:
@@ -847,6 +857,9 @@ Many thanks to:
 * [Ben Morrall](https://github.com/bmorrall)
 * [Yves Senn](https://github.com/senny)
 * [Ben Atkins](https://github.com/fullbridge-batkins)
+* [Yves Senn](https://github.com/senny)
+* [Tyler Rick](https://github.com/TylerRick)
+* [Bradley Priest](https://github.com/bradleypriest)
 
 
 ## Inspirations
