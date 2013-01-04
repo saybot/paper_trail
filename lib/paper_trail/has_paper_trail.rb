@@ -258,7 +258,7 @@ module PaperTrail
         end
         previous.tap do |prev|
           prev.id = id
-          changed_attributes.each { |attr, before| prev[attr] = before }
+          changed_attributes.each { |attr, before| prev[attr] = before if attribute_names.include? attr}
         end
       end
 
